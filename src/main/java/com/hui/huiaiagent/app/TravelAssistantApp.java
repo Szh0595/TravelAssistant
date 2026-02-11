@@ -14,6 +14,7 @@ import org.springframework.ai.chat.memory.InMemoryChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.tool.ToolCallback;
+import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.ai.tool.ToolCallbacks;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,9 @@ public class TravelAssistantApp {
 
     @Resource
     private ToolCallback[] tools;
+
+    @Resource
+    private ToolCallbackProvider toolCallbackProvider;
 
 //    @Resource
 //    private Advisor travelAssistentCloudAdvisor;
@@ -69,7 +73,7 @@ public class TravelAssistantApp {
 //               .advisors(travelAssistentCloudAdvisor)
                //基于pgvector的向量搜索
 //               .advisors(new QuestionAnswerAdvisor(pgVectorVectorStore))
-                .tools(tools)
+                .tools(toolCallbackProvider)
                 .call()
                 .chatResponse();
         String content = response.getResult().getOutput().getText();

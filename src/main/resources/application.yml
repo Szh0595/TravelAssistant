@@ -8,6 +8,11 @@ spring:
       host: localhost
       prot: 6379
       database: 0
+  ai:
+    mcp:
+      client:
+        stdio:
+          servers-configuration: classpath:mcp-servers.json
 server:
   port: 8888
   servlet:
