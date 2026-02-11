@@ -18,7 +18,8 @@ public class ToolsRegistration {
     public ToolCallback[] tools() {
         return ToolCallbacks.from(
                 new WebScrapingTool(),
-                new WebSearchTool(SearchApiKey)
+                new WebSearchTool(SearchApiKey),
+                new ToolsRegistration()
                 );
     }
 }
