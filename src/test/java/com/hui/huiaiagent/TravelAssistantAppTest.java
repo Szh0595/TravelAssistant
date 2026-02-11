@@ -33,7 +33,7 @@ public class TravelAssistantAppTest {
     @Test
     void testChat2(){
         String chatId = UUID.randomUUID().toString();
-        String message = "我想去武汉玩，请给我制定一份旅游攻略";
+        String message = "我一个人想去南昌玩，帮我查一下近几天南昌的天气";
         String answer = travelAssistantApp.doChat(message, chatId);
         Assertions.assertNotNull(answer);
     }
